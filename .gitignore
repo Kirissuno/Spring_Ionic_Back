@@ -30,34 +30,3 @@ build/
 ### VS Code ###
 .vscode/
 
-*~
-*.sw[mnpcod]
-*.log
-*.tmp
-*.tmp.*
-log.txt
-
-# NPM (Node Package Manager) files
-/web/npm-debug.log*
-/web/node_modules/
-/web/tmp/
-/web/temp/
-
-# Preprocessors cache files
-.sourcemaps/
-.sass-cache/
-.tmp/
-hooks/
-
-# Ionic 3 plugins files
-platforms/
-plugins/
-plugins/android.json
-plugins/ios.json
-www/
-
-# Trash data
-$RECYCLE.BIN/
-.DS_Store
-Thumbs.db
-UserInterfaceState.xcuserstate
