@@ -1,13 +1,9 @@
 package com.jacaranda.brenes.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,28 +13,25 @@ public class Carrito {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "carrito")
-	private Set<Producto> productos;
-	
+	private String producto;
 	private Integer cantidad;
 	
 	public Carrito() {
 		super();
 	}
-	public Carrito(Set<Producto> producto, Integer cantidad) {
+	public Carrito(String producto, Integer cantidad) {
 		super();
-		this.productos = producto;
+		this.producto = producto;
 		this.cantidad = cantidad;
 	}
 	public Integer getId() {
 		return id;
 	}
-	public Set<Producto> getProductos() {
-		return productos;
+	public String getProductos() {
+		return producto;
 	}
-	public void setProductos(Set<Producto> productos) {
-		this.productos = productos;
+	public void setProductos(String producto) {
+		this.producto = producto;
 	}
 	public Integer getCantidad() {
 		return cantidad;

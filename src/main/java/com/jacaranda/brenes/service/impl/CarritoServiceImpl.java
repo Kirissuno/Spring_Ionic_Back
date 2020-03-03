@@ -1,6 +1,5 @@
 package com.jacaranda.brenes.service.impl;
 
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +20,12 @@ public class CarritoServiceImpl implements CarritoService {
 	
 	@Override
 	public void addProducto(ProductoDTO prod) {		
-		carrito.getProductos().add(new Producto(prod.getNombre(), prod.getDescription(), prod.getPeso(), prod.getStock(), prod.getPedidos(), prod.getCategorias()));
-		carritoRepo.save(carrito);
+		
 	}
 
 	@Override
 	public void deleteProducto(Integer id) {
-		for (Producto producto : carrito.getProductos()) {
-			if(producto.getCodProd() == id) {
-				carrito.getProductos().remove(producto);
-			}
-		}
-		carritoRepo.save(carrito);
+		
 	}
 
 	@Override

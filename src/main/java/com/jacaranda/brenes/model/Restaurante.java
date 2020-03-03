@@ -21,7 +21,9 @@ public class Restaurante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codRes;
-	private Integer correo;
+	private String correo;
+	private String nombre;
+	private String urlImage;
 	private Integer clave;
 	private String direccion;
 	private Integer codPos;
@@ -41,10 +43,14 @@ public class Restaurante {
 		super();
 	}
 
-	public Restaurante(Integer correo, Integer clave, String direccion, Integer codPos, String pais,
-			Set<Pedido> pedidos) {
+	
+
+	public Restaurante(String correo, String nombre, String urlImage, Integer clave, String direccion,
+			Integer codPos, String pais, Set<Pedido> pedidos) {
 		super();
 		this.correo = correo;
+		this.nombre = nombre;
+		this.urlImage = urlImage;
 		this.clave = clave;
 		this.direccion = direccion;
 		this.codPos = codPos;
@@ -52,15 +58,41 @@ public class Restaurante {
 		this.pedidos = pedidos;
 	}
 
+	
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
+	}
+
+
+
 	public Integer getCodRes() {
 		return codRes;
 	}
 
-	public Integer getCorreo() {
+	public String getCorreo() {
 		return correo;
 	}
 
-	public void setCorreo(Integer correo) {
+	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
 

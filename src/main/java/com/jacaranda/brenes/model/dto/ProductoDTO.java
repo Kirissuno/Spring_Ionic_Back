@@ -11,6 +11,7 @@ public class ProductoDTO {
 	private Integer codProd;
 	private String nombre;
 	private String description;
+	private String urlImage;
 	private Double peso;
 	private Integer stock;
     private Set<Pedido> pedidos = new HashSet<>();
@@ -19,16 +20,24 @@ public class ProductoDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ProductoDTO(Integer codProd, String nombre, String description, Double peso, Integer stock,
+	public ProductoDTO(Integer codProd, String nombre, String description, String urlImage, Double peso, Integer stock,
 			Set<Pedido> pedidos, Set<Categoria> categorias) {
 		super();
 		this.codProd = codProd;
 		this.nombre = nombre;
+		this.urlImage = urlImage;
 		this.description = description;
 		this.peso = peso;
 		this.stock = stock;
 		this.pedidos = pedidos;
 		this.categorias = categorias;
+	}
+	
+	public String getUrlImage() {
+		return urlImage;
+	}
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 	public Integer getCodProd() {
 		return codProd;

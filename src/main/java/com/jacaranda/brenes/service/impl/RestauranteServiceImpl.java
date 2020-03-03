@@ -23,7 +23,7 @@ public class RestauranteServiceImpl implements RestauranteService {
 		List<Restaurante> restaurantes = restauranteRepository.findAll();
 		List<RestauranteDTO> restaurantesDTO = new ArrayList<RestauranteDTO>();
 		for(Restaurante cat : restaurantes) {
-			restaurantesDTO.add(new RestauranteDTO(cat.getCodRes(), cat.getCorreo(), cat.getClave(), cat.getDireccion(), cat.getCodPos(), cat.getPais(), cat.getPedidos()));
+			restaurantesDTO.add(new RestauranteDTO(cat.getCodRes(), cat.getCorreo(), cat.getNombre(), cat.getUrlImage(), cat.getClave(), cat.getDireccion(), cat.getCodPos(), cat.getPais(), cat.getPedidos()));
 		}
 		return restaurantesDTO;
 	}
@@ -32,7 +32,7 @@ public class RestauranteServiceImpl implements RestauranteService {
 	public RestauranteDTO getRestauranteByID(Integer id) {
 		Optional<Restaurante> restaurante = restauranteRepository.findById(id);
 		if(restaurante.isPresent()) {
-			return new RestauranteDTO(restaurante.get().getCodRes() , restaurante.get().getCorreo(), restaurante.get().getClave(), restaurante.get().getDireccion(), restaurante.get().getCodPos(), restaurante.get().getPais(), restaurante.get().getPedidos());
+			return new RestauranteDTO(restaurante.get().getCodRes() , restaurante.get().getCorreo(), restaurante.get().getNombre(), restaurante.get().getUrlImage(), restaurante.get().getClave(), restaurante.get().getDireccion(), restaurante.get().getCodPos(), restaurante.get().getPais(), restaurante.get().getPedidos());
 		}else {
 			return null;
 		}
@@ -40,12 +40,12 @@ public class RestauranteServiceImpl implements RestauranteService {
 
 	@Override
 	public void addRestaurante(RestauranteDTO restaurante) {
-		restauranteRepository.save(new Restaurante(restaurante.getCorreo(), restaurante.getClave(), restaurante.getDireccion(), restaurante.getCodPos(), restaurante.getPais(), restaurante.getPedidos()));
+		restauranteRepository.save(new Restaurante(restaurante.getCorreo(), restaurante.getNombre(), restaurante.getUrlImage(), restaurante.getClave(), restaurante.getDireccion(), restaurante.getCodPos(), restaurante.getPais(), restaurante.getPedidos()));
 	}
 
 	@Override
 	public void deleteRestaurante(RestauranteDTO restaurante) {
-		restauranteRepository.delete(new Restaurante(restaurante.getCorreo(), restaurante.getClave(), restaurante.getDireccion(), restaurante.getCodPos(), restaurante.getPais(), restaurante.getPedidos()));
+		restauranteRepository.delete(new Restaurante(restaurante.getCorreo(), restaurante.getNombre(), restaurante.getUrlImage(), restaurante.getClave(), restaurante.getDireccion(), restaurante.getCodPos(), restaurante.getPais(), restaurante.getPedidos()));
 	}
 
 

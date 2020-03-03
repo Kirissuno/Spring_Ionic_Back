@@ -23,13 +23,10 @@ public class Producto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer codProd;
 	private String nombre;
+	private String urlImage;
 	private String description;
 	private Double peso;
 	private Integer stock;
-	
-	@ManyToOne
-	@JoinColumn(name = "carito_id")
-	private Carrito carrito;
 	
 	@ManyToMany(fetch = FetchType.LAZY,
             cascade = {
@@ -53,11 +50,12 @@ public class Producto {
 		super();
 	}
 
-	public Producto(String nombre, String description, Double peso, Integer stock, Set<Pedido> pedidos,
+	public Producto(String nombre, String description, String urlImage, Double peso, Integer stock, Set<Pedido> pedidos,
 			Set<Categoria> categorias) {
 		super();
 		this.nombre = nombre;
 		this.description = description;
+		this.urlImage = urlImage;
 		this.peso = peso;
 		this.stock = stock;
 		this.pedidos = pedidos;
@@ -66,6 +64,16 @@ public class Producto {
 
 	public Integer getCodProd() {
 		return codProd;
+	}
+	
+	
+
+	public String getUrlImage() {
+		return urlImage;
+	}
+
+	public void setUrlImage(String urlImage) {
+		this.urlImage = urlImage;
 	}
 
 	public String getNombre() {
